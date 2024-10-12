@@ -12,7 +12,9 @@ export async function getGallery() {
 }
 
 export async function createGallery(image) {
-  const { data } = await axios.post(`${API_URL}api/v1/gallerys`, image);
+  const { data } = await axios.post(`${API_URL}api/v1/gallerys`, image, {
+    withCredentials: true,
+  });
 
   if (data.status !== "success") {
     throw new Error(data.message);
@@ -22,13 +24,17 @@ export async function createGallery(image) {
 }
 
 export async function downloadGallery(id) {
-  const { data } = await axios.get(`${API_URL}api/v1/gallerys/${id}/download`);
+  const { data } = await axios.get(`${API_URL}api/v1/gallerys/${id}/download`, {
+    withCredentials: true,
+  });
 
   return data;
 }
 
 export async function deleteGallery(id) {
-  const { data } = await axios.delete(`${API_URL}api/v1/gallerys/${id}`);
+  const { data } = await axios.delete(`${API_URL}api/v1/gallerys/${id}`, {
+    withCredentials: true,
+  });
 
   return data;
 }

@@ -1,4 +1,5 @@
 import { IconLogout } from "@tabler/icons-react";
+
 import useLogout from "./useLogout";
 import SpinnerMini from "../../ui/SpinnerMini";
 

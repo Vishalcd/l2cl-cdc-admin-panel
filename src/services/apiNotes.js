@@ -12,7 +12,9 @@ export async function getNotes() {
 }
 
 export async function createNote(note) {
-  const { data } = await axios.post(`${API_URL}api/v1/notes`, note);
+  const { data } = await axios.post(`${API_URL}api/v1/notes`, note, {
+    withCredentials: true,
+  });
 
   if (data.status !== "success") {
     throw new Error(data.message);
@@ -23,7 +25,9 @@ export async function createNote(note) {
 
 export async function updateNote(id, noteData) {
   console.log(id, noteData);
-  const { data } = await axios.patch(`${API_URL}api/v1/notes/${id}`, noteData);
+  const { data } = await axios.patch(`${API_URL}api/v1/notes/${id}`, noteData, {
+    withCredentials: true,
+  });
 
   if (data.status !== "success") {
     throw new Error(data.message);
@@ -33,7 +37,9 @@ export async function updateNote(id, noteData) {
 }
 
 export async function deleteNote(id) {
-  const { data } = await axios.delete(`${API_URL}api/v1/notes/${id}`);
+  const { data } = await axios.delete(`${API_URL}api/v1/notes/${id}`, {
+    withCredentials: true,
+  });
 
   return data;
 }

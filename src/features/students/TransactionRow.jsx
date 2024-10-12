@@ -1,13 +1,15 @@
 import { IconBrandCashapp, IconCash } from "@tabler/icons-react";
+
 import { formatCurrency } from "../../utils/helper";
 import Courses from "../../ui/Courses";
-import { formatDate } from "date-fns";
 import FeeStatus from "../../ui/FeeStatus";
+import RowTime from "../../ui/RowTime";
+import RowID from "../../ui/RowID";
 
 function TransactionRow({ transaction }) {
   return (
     <div className="grid grid-cols-[1fr,1fr,1.2fr,1.5fr,1fr,1fr] py-3 px-6 text-base dark:text-stone-300  text-zinc-600 border-b dark:border-stone-700 dark:bg-stone-800 border-zinc-200">
-      <span className=" font-mono font-medium text-base">#{transaction.transactionId}</span>
+      <RowID>{transaction.transactionId}</RowID>
 
       <Courses courses={transaction.courses} />
 
@@ -34,9 +36,7 @@ function TransactionRow({ transaction }) {
         )}
       </span>
 
-      <time className=" dark:text-stone-300 font-mono font-semibold">
-        {formatDate(transaction.createdAt, "dd/MMM/yyyy")}
-      </time>
+      <RowTime>{transaction.createdAt}</RowTime>
     </div>
   );
 }

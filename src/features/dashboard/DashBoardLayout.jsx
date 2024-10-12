@@ -20,8 +20,6 @@ function DashBoardLayout() {
     lastTransactions: stats.lastTransactions,
   };
 
-  console.log(statData.lastTransactions);
-
   return (
     <div className=" mt-6 min-h-max grid grid-cols-2 grid-rows-[min-content,0.6fr,1fr] gap-6">
       <Stats statData={statData} />

@@ -5,7 +5,7 @@ function Courses({ courses }) {
         return (
           <li
             key={course.courseName}
-            className={` drop-shadow-sm	 leading-none py-1 font-medium  px-2 rounded-full inline-block text-xs ${
+            className={` drop-shadow-sm w-max	 leading-none py-1 font-medium  px-2 rounded-full inline-block text-xs ${
               course.courseName === "bca"
                 ? "bg-blue-800 dark:bg-blue-900"
                 : course.courseName === "web-dev"

@@ -1,4 +1,5 @@
 import { IconDownload, IconTrash } from "@tabler/icons-react";
+
 import Modal from "../../ui/Modal";
 import ConfirmDelete from "../../ui/ConfirmDelete";
 import useDeleteGallery from "./useDeleteGallery";
@@ -33,7 +34,7 @@ function GalleryCard({ gallery }) {
 
       <img
         src={`http://localhost:8000/img/gallery/${gallery.photo}`}
-        alt="gsa gallery"
+        alt={`${gallery.photo} gallery image`}
         className="  hover:scale-110 hover:rotate-1 transition-transform  hover:grayscale "
       />
     </div>

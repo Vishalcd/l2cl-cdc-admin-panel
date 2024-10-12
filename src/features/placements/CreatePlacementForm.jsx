@@ -6,24 +6,30 @@ import {
   IconPhotoUp,
   IconUser,
 } from "@tabler/icons-react";
+import { useForm } from "react-hook-form";
+
 import ButtonOutline from "../../ui/ButtonOutline";
 import ButtonPrimary from "../../ui/ButtonPrimary";
 import FormLable from "../../ui/FormLable";
 import Row from "../../ui/Row";
-import { useForm } from "react-hook-form";
 import FormRow from "../../ui/FormRow";
 import Error from "../../ui/Error";
 import useCreatePlacement from "./useCreatePlacement";
+import useEditPlacement from "./useEditPlacement";
 
 function CreatePlacementForm({ onCloseModal, placementToEdit = {} }) {
-  const form = useForm({ defaultValues: placementToEdit });
+  const { _id: editId, photo, ...editValues } = placementToEdit;
+  const isEditSession = Boolean(editId);
+
+  const form = useForm({ defaultValues: isEditSession ? editValues : {} });
   const { register, handleSubmit, formState } = form;
   const { errors } = formState;
 
   const { createPlacement, isCreating } = useCreatePlacement();
+  const { isEditing, editPlacement } = useEditPlacement();
 
   function onSubmit(data) {
-    data.photo = data.photo[0];
+    console.log(data.photo, data.photo.length === 0);
 
     const formData = new FormData();
     formData.append("name", data.name);
@@ -31,17 +37,18 @@ function CreatePlacementForm({ onCloseModal, placementToEdit = {} }) {
     formData.append("developerRole", data.developerRole);
     formData.append("salary", data.salary);
     formData.append("companyName", data.companyName);
-    formData.append("photo", data.photo);
+    isEditSession
+      ? data.photo.length === 0
+        ? null
+        : formData.append("photo", data.photo[0])
+      : formData.append("photo", data.photo[0]);
 
-    // const editedData = { subject: data.subject, pdfTitle: data.pdfTitle, pdfLink: data.pdfLink };
-    // isEditSession
-    //   ? editNote({ id: editId, data: editedData }, { onSuccess: () => onCloseModal?.() })
-    //   : createNote(formData, { onSuccess: () => onCloseModal?.() });
-
-    createPlacement(formData, { onSuccess: () => onCloseModal?.() });
+    isEditSession
+      ? editPlacement({ id: editId, data: formData }, { onSuccess: () => onCloseModal?.() })
+      : createPlacement(formData, { onSuccess: () => onCloseModal?.() });
   }
 
-  const isWorking = isCreating;
+  const isWorking = isCreating || isEditing;
   return (
     <form onSubmit={handleSubmit(onSubmit)} className=" w-[36rem]">
       <FormRow
@@ -146,14 +153,25 @@ function CreatePlacementForm({ onCloseModal, placementToEdit = {} }) {
       </FormRow>
 
       <FormRow icon={<IconPhotoUp stroke={2} />} label="Upload Image" htmlFor="photo">
-        <input
-          id="photo"
-          type="file"
-          name="photo"
-          className="rounded border border-zinc-200 w-80 file:cursor-pointer px-0 py-0 file:bg-violet-200 file:text-violet-600 file:px-4 file:py-3 file:leading-none file:border-none file:rounded-md file:mr-4 font-medium"
-          disabled={isWorking}
-          {...register("photo", { required: "This field is required!" })}
-        />
+        <div className="flex items-center gap-3 w-80">
+          {isEditSession && (
+            <div className="overflow-hidden bg-violet-100 border border-zinc-200 w-12 h-18">
+              <img
+                className=" dark:brightness-90"
+                src={`http://localhost:8000/img/placements/${photo}`}
+                alt="shining star 1"
+              />
+            </div>
+          )}
+          <input
+            id="photo"
+            type="file"
+            name="photo"
+            className="rounded border border-zinc-200 w-full file:cursor-pointer px-0 py-0 file:bg-violet-200 file:text-violet-600 file:px-4 file:py-3 file:leading-none file:border-none file:rounded-md file:mr-4 font-medium"
+            disabled={isWorking}
+            {...register("photo", { required: isEditSession ? false : "This field is required!" })}
+          />
+        </div>
 
         {errors?.photo?.message && <Error>{errors.photo.message}</Error>}
       </FormRow>

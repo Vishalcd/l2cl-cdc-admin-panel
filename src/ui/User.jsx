@@ -18,7 +18,7 @@ function User() {
       <div className="w-10 aspect-square rounded-full  bg-violet-100">
         <img
           src={`${photo === "deafult.jpg" ? `/img/deafult.jpg` : `/img/${photo}`}`}
-          alt="user profile picture"
+          alt={`${name} profile picture`}
           className=" rounded-full "
         />
       </div>

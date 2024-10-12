@@ -1,6 +1,8 @@
 import { Controller, useForm } from "react-hook-form";
-import { IconCertificate, IconMoneybag, IconReceiptRupee } from "@tabler/icons-react";
 import Multiselect from "multiselect-react-dropdown";
+import { useParams } from "react-router-dom";
+
+import { IconCertificate, IconMoneybag, IconReceiptRupee } from "@tabler/icons-react";
 
 import FormRow from "../../ui/FormRow";
 import ButtonOutline from "../../ui/ButtonOutline";
@@ -9,7 +11,6 @@ import Error from "../../ui/Error";
 import Row from "../../ui/Row";
 import FormLable from "../../ui/FormLable";
 import useCreateTransaction from "./useCreateTransaction";
-import { useParams } from "react-router-dom";
 import { formatCurrency } from "../../utils/helper";
 
 function DepositFeeForm({ onCloseModal, courses, remainingFees }) {

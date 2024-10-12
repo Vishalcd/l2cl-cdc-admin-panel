@@ -1,8 +1,10 @@
+import { useForm } from "react-hook-form";
+
 import { IconPhotoUp, IconPolaroid } from "@tabler/icons-react";
+
 import ButtonOutline from "../../ui/ButtonOutline";
 import ButtonPrimary from "../../ui/ButtonPrimary";
 import FormRow from "../../ui/FormRow";
-import { useForm } from "react-hook-form";
 import Error from "../../ui/Error";
 import useCreateGallery from "./useCreateGallery";
 

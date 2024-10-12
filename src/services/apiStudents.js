@@ -2,9 +2,9 @@ import axios from "axios";
 import { API_URL, PAGE_SIZE } from "../utils/helper";
 
 export async function getStudents({ filter, sort, page }) {
-  let query = `${API_URL}api/v1/users?fields=name,email,photo,phoneNumber,_id,active,cources,createdAt&sort=${sort}${
+  let query = `${API_URL}api/v1/users?fields=name,email,photo,enrollId,phoneNumber,_id,active,cources,createdAt&role=student&sort=${sort}${
     filter ? `&${filter}` : ""
-  }${page ? `&page=${page}&limit=${PAGE_SIZE}` : ""},`;
+  }${page ? `&page=${page}&limit=${PAGE_SIZE}` : ""}`;
 
   const { data } = await axios.get(query, {
     withCredentials: true,

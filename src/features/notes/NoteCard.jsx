@@ -23,7 +23,7 @@ function NoteCard({ note }) {
       <div className="w-auto aspect-video">
         <img
           src={`http://localhost:8000/img/pdf/${note.pdfCover}`}
-          alt="notes photo"
+          alt={`${note.pdfTitle} Note Thumbnail`}
           className=" rounded-md"
         />
       </div>

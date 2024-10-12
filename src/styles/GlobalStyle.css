@@ -8,7 +8,7 @@
 @layer utilities {
   /* Hide scrollbar for Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {
-    display: none;
+    @apply hidden;
   }
   /* Hide scrollbar for IE, Edge and Firefox */
   .no-scrollbar {
@@ -37,9 +37,10 @@ body {
 input,
 button,
 select,
-option {
+option,
+textarea {
   font: inherit;
-  @apply accent-violet-600;
+  @apply accent-violet-600 transition-all;
   @apply cursor-pointer;
 
   &:focus {
@@ -47,11 +48,20 @@ option {
   }
 }
 
-input {
+input,
+textarea {
   @apply dark:bg-stone-700 dark:placeholder:text-stone-500 dark:border-stone-600 dark:text-stone-200 bg-zinc-50 text-sm font-medium text-zinc-500 !important;
 }
 select {
   @apply dark:bg-stone-700 dark:text-stone-200 dark:border-stone-600;
+}
+
+label {
+  @apply text-sm;
+
+  & svg {
+    @apply text-zinc-500;
+  }
 }
 
 *:disabled {
@@ -65,6 +75,10 @@ a.active:visited {
 
   & svg {
     @apply text-violet-200;
+  }
+
+  &:hover {
+    @apply bg-violet-600 text-violet-200;
   }
 }
 

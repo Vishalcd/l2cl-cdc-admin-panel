@@ -13,10 +13,8 @@ function DarkModeProvider({ children }) {
     function () {
       if (isDarkMode) {
         document.documentElement.classList.add("dark");
-        // document.documentElement.classList.remove("light-mode");
       } else {
         document.documentElement.classList.remove("dark");
-        // document.documentElement.classList.remove("dark-mode");
       }
     },
     [isDarkMode]

@@ -1,3 +1,5 @@
+import { useState } from "react";
+import Multiselect from "multiselect-react-dropdown";
 import { Controller, useForm } from "react-hook-form";
 
 import {
@@ -11,13 +13,10 @@ import {
 } from "@tabler/icons-react";
 
 import useEditStudent from "./useEditStudent";
-
 import FormRow from "../../ui/FormRow";
 import ButtonOutline from "../../ui/ButtonOutline";
 import ButtonPrimary from "../../ui/ButtonPrimary";
 import Error from "../../ui/Error";
-import { useState } from "react";
-import Multiselect from "multiselect-react-dropdown";
 import useCourse from "../settings/useCourse";
 import Courses from "../../ui/Courses";
 import Spinner from "../../ui/Spinner";

@@ -26,7 +26,7 @@ export async function createCourse(course) {
 }
 
 export async function updateCourse(id, course) {
-  const { data } = await axios.post(`${API_URL}api/v1/courses${id}`, course, {
+  const { data } = await axios.patch(`${API_URL}api/v1/courses/${id}`, course, {
     withCredentials: true,
   });
 

@@ -15,10 +15,10 @@ function PlacementOperations() {
       />
       <Sort
         options={[
-          { value: "name-asc", lable: "Sort by name (A-Z)" },
-          { value: "name-desc", lable: "Sort by name (Z-A)" },
-          { value: "salary-asc", lable: "Sort by salary (low first)" },
-          { value: "salary-desc", lable: "Sort by salary (high first)" },
+          { value: "name", lable: "Sort by name (A-Z)" },
+          { value: "-name", lable: "Sort by name (Z-A)" },
+          { value: "salary", lable: "Sort by salary (low first)" },
+          { value: "-salary", lable: "Sort by salary (high first)" },
         ]}
       />
     </Row>

@@ -1,11 +1,13 @@
 import {
   IconCertificate,
+  IconCoinRupee,
   IconEdit,
   IconExternalLink,
   IconMail,
   IconMoneybag,
   IconPhone,
   IconPhoneSpark,
+  IconRosetteDiscountCheck,
   IconTransactionRupee,
   IconUser,
   IconUserHexagon,
@@ -45,14 +47,14 @@ function StudentDetails() {
         <div className=" flex items-center gap-4">
           <ButtonBack to="/students">Back</ButtonBack>
           <Heading moreClasses="text-xl">
-            #{student.studentId}
+            #{student.enrollId}
             <StudentStatus status={student.active} />
           </Heading>
         </div>
 
         <JoinUs date={student.createdAt} />
       </Row>
-      <div className=" min-h-52 mt-6 shadow-sm dark:bg-stone-800 bg-zinc-50 rounded-md overflow-hidden grid grid-cols-[200px,1fr] p-4">
+      <div className=" min-h-52 mt-6 shadow-sm dark:bg-stone-800 bg-zinc-50  rounded-lg overflow-hidden grid grid-cols-[200px,1fr] p-4">
         <div className=" relative flex items-center justify-center flex-col border-r dark:border-[rgba(255,255,255,0.05)] border-[rgba(1,1,1,0.05)]">
           <div className="w-20 h-20 overflow-hidden mb-4  ">
             <img
@@ -118,8 +120,8 @@ function StudentDetails() {
             </StudentDetailBox>
 
             <StudentDetailBox
-              icon={<IconTransactionRupee width={20} height={20} />}
-              heading="Transitions">
+              icon={<IconRosetteDiscountCheck width={20} height={20} />}
+              heading="Fees Status">
               <FeeStatus status={student.feesComplete} />
             </StudentDetailBox>
           </div>
@@ -131,7 +133,7 @@ function StudentDetails() {
           <Modal>
             <Modal.Open opens="fee-form">
               <ButtonPrimary>
-                <IconMoneybag /> Depsoit Fees
+                <IconCoinRupee stroke={2} /> Depsoit Fees
               </ButtonPrimary>
             </Modal.Open>
             <Modal.Window names="fee-form">

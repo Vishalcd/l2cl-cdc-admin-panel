@@ -6,12 +6,18 @@ import {
   IconEdit,
   IconTrash,
 } from "@tabler/icons-react";
+
 import Stack from "../../ui/Stack";
 import Menus from "../../ui/Menus";
 import Modal from "../../ui/Modal";
 import ConfirmDelete from "../../ui/ConfirmDelete";
 import CreatePlacementForm from "./CreatePlacementForm";
 import useDeletePlacement from "./useDeletePlacement";
+import Row from "../../ui/Row";
+import Name from "../../ui/Name";
+import RowTime from "../../ui/RowTime";
+import RowGender from "../../ui/RowGender";
+import RowInfo from "../../ui/RowInfo";
 
 function PlacementRow({ placement }) {
   function handleDup() {
@@ -21,17 +27,19 @@ function PlacementRow({ placement }) {
   const { deletePlacement, isDeleting } = useDeletePlacement();
 
   return (
-    <div className=" grid grid-cols-shiningStarsTable py-2.5 px-6 dark:bg-stone-800  bg-zinc-50  border-t border-zinc-200 dark:border-stone-700 content-center items-center">
+    <Row
+      role="row"
+      moreClasses=" grid gap-2 grid-cols-shiningStarsTable py-2.5 px-6 dark:bg-stone-800  bg-zinc-50  border-t border-zinc-200 dark:border-stone-700 content-center items-center">
       <div className="overflow-hidden bg-violet-100 border border-zinc-200 w-12 h-18">
         <img
           className=" dark:brightness-90"
           src={`http://localhost:8000/img/placements/${placement.photo}`}
-          alt="shining star 1"
+          alt={`${placement.name} Placement picture`}
         />
       </div>
       <Stack>
-        <p className="tracking-tight text-base font-semibold  leading-[1.6]">{placement.name}</p>
-        <span className=" text-sm font-semibold text-zinc-500 capitalize">{placement.gender}</span>
+        <Name>{placement.name}</Name>
+        <RowGender>{placement.gender}</RowGender>
       </Stack>
 
       <div className="flex items-center gap-2 justify-start">
@@ -51,16 +59,14 @@ function PlacementRow({ placement }) {
         </span>
       </div>
 
-      <p className="font-mono text-xl font-medium tracking-tighter text-green-700 bg-green-100 px-4 py-0.5 inline-block leading-none w-max rounded-full">
+      <p className="font-mono text-lg font-medium tracking-tighter text-green-700 bg-green-100 px-4 py-1 inline-block leading-none w-max rounded-full">
         {`${placement.salary.toFixed(2, 0)}`}
-        <span className="text-base inline-block">/LPA</span>
+        <span className="text-base inline-block leading-none">/LPA</span>
       </p>
 
-      <p className="font-semibold tracking-tight dark:text-stone-300 text-zinc-600 ">
-        {placement.companyName}
-      </p>
+      <RowInfo>{placement.companyName}</RowInfo>
 
-      <span className=" font-mono font-medium dark:text-stone-400  text-zinc-500">12/Aug/2024</span>
+      <RowTime>{placement.createdAt}</RowTime>
 
       <Modal>
         <Menus.Menu>
@@ -90,7 +96,7 @@ function PlacementRow({ placement }) {
           </Modal.Window>
         </Menus.Menu>
       </Modal>
-    </div>
+    </Row>
   );
 }
 

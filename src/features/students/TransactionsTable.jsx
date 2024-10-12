@@ -1,11 +1,13 @@
 import { IconTransactionRupee } from "@tabler/icons-react";
+import { useSearchParams } from "react-router-dom";
+
 import TransactionRow from "./TransactionRow";
 import { formatCurrency } from "../../utils/helper";
 import Spinner from "../../ui/Spinner";
 import useStudentTransactions from "./useTransactions";
 import TransactionsOperations from "./TransactionsOperations";
-import { useSearchParams } from "react-router-dom";
 import FeeStatus from "../../ui/FeeStatus";
+import Empty from "../../ui/Empty";
 
 function TransactionsTable({ student }) {
   const { isLoading, studentTranscations } = useStudentTransactions();
@@ -34,13 +36,13 @@ function TransactionsTable({ student }) {
     );
 
   // sorting
-  const [field, direction] = (searchParams.get("sort") || "transactionAmount-asc").split("-");
+  const [field, direction] = (searchParams.get("sort") || "createdAt-asc").split("-");
 
   const modifier = direction === "asc" ? 1 : -1;
   const sortedTransactions = filteredTransactions.sort((a, b) => (a[field] - b[field]) * modifier);
 
   return (
-    <div className="w-full h-auto  mt-12 shadow-sm bg-zinc-50 rounded-md overflow-hidden">
+    <div className="w-full h-auto  mt-12 shadow-sm bg-zinc-50 rounded-lg overflow-hidden">
       <div className="flex items-center justify-between bg-violet-600 h-16 text-zinc-50 px-6">
         <p className=" text-xl flex items-center gap-6">
           <span className=" font-semibold flex items-center gap-3">
@@ -68,6 +70,7 @@ function TransactionsTable({ student }) {
         <div>Remainig Fee</div>
         <div>Date</div>
       </div>
+      {!sortedTransactions.length && <Empty resource="Transactions" />}
 
       {sortedTransactions.map((transaction) => (
         <TransactionRow key={transaction._id} transaction={transaction} />

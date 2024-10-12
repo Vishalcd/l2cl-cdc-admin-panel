@@ -8,8 +8,8 @@ function Logo() {
       <img
         src={`/img/${isDarkMode ? "logo-light" : "logo-dark"}.png`}
         alt=""
-        width="130"
-        height="130"
+        width="120"
+        height="120"
       />
     </div>
   );

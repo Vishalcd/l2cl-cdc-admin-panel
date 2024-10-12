@@ -9,7 +9,7 @@ function StudentTable() {
   const { isLoading, data } = useStudents();
   if (isLoading) return <Spinner />;
 
-  const { data: students, totalLength } = data;
+  const { data: students, totalResults } = data;
 
   if (!students.length || !students) return <Empty resource="Student" />;
 
@@ -20,7 +20,7 @@ function StudentTable() {
           role="table"
           moreClasses="grid content-center grid-cols-userTable py-2.5 px-4 uppercase font-bold dark:text-stone-200  text-zinc-700  ">
           <div></div>
-          <div>User</div>
+          <div>Student</div>
           <div>Courses</div>
           <div>M. Number</div>
           <div>Status</div>
@@ -32,7 +32,7 @@ function StudentTable() {
           <StudentRow key={student._id} student={student} />
         ))}
 
-        <Pagination count={totalLength} />
+        <Pagination count={totalResults} />
       </div>
     </>
   );

@@ -1,5 +1,5 @@
 import Sidebar from "./Sidebar";
-import Header from "./Header";
+import Header from "./HEader";
 import Main from "./Main";
 
 function AppLayout() {

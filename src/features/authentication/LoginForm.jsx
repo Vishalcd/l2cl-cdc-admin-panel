@@ -1,4 +1,7 @@
 import { useState } from "react";
+
+import { IconLogin } from "@tabler/icons-react";
+
 import ButtonPrimary from "../../ui/ButtonPrimary";
 import useLogin from "./useLogin";
 import SpinnerMini from "../../ui/SpinnerMini";
@@ -66,7 +69,9 @@ function LoginForm() {
         </div>
 
         <ButtonPrimary moreClasses="w-full mt-8">
-          {isLoging ? <SpinnerMini /> : "Login"}
+          {" "}
+          {isLoging || <IconLogin stroke={2} />}
+          {isLoging ? <SpinnerMini /> : `Login`}
         </ButtonPrimary>
       </form>
     </>
