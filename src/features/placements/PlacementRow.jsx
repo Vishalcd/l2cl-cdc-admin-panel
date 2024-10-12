@@ -20,10 +20,6 @@ import RowGender from "../../ui/RowGender";
 import RowInfo from "../../ui/RowInfo";
 
 function PlacementRow({ placement }) {
-  function handleDup() {
-    console.log(window);
-  }
-
   const { deletePlacement, isDeleting } = useDeletePlacement();
 
   return (
@@ -59,7 +55,7 @@ function PlacementRow({ placement }) {
         </span>
       </div>
 
-      <p className="font-mono text-lg font-medium tracking-tighter text-green-700 bg-green-100 px-4 py-1 inline-block leading-none w-max rounded-full">
+      <p className="font-mono text-lg font-medium tracking-tighter text-green-700 bg-green-100 dark:text-green-200 dark:bg-green-900 px-4 py-1 inline-block leading-none w-max rounded-full">
         {`${placement.salary.toFixed(2, 0)}`}
         <span className="text-base inline-block leading-none">/LPA</span>
       </p>
@@ -74,14 +70,10 @@ function PlacementRow({ placement }) {
 
           <Menus.List id={placement._id}>
             <Modal.Open opens="edit">
-              <Menus.Button onClick={handleDup} icon={<IconEdit width={20} height={20} />}>
-                Edit
-              </Menus.Button>
+              <Menus.Button icon={<IconEdit width={20} height={20} />}>Edit</Menus.Button>
             </Modal.Open>
             <Modal.Open opens="delete">
-              <Menus.Button onClick={handleDup} icon={<IconTrash width={20} height={20} />}>
-                Delete
-              </Menus.Button>
+              <Menus.Button icon={<IconTrash width={20} height={20} />}>Delete</Menus.Button>
             </Modal.Open>
           </Menus.List>
           <Modal.Window names="edit">

@@ -31,7 +31,6 @@ function CreateNoteForm({ onCloseModal, noteToEdit = {} }) {
   const { createNote, isCreating } = useCreateNote();
 
   function onSubmit(data) {
-    console.log(data);
     const formData = new FormData();
     formData.append("pdfTitle", data.pdfTitle);
     formData.append("pdfLink", data.pdfLink);
@@ -88,7 +87,7 @@ function CreateNoteForm({ onCloseModal, noteToEdit = {} }) {
                 displayValue="name"
                 value={value ? value : []}
                 onSelect={(e) => onChange(e)}
-                disable={isCreating}
+                disable={isWorking}
                 onRemove={(e) => onChange(e)}
                 placeholder="Select Subjects"
                 {...register("subject", { required: "This field is required!" })}
@@ -124,7 +123,9 @@ function CreateNoteForm({ onCloseModal, noteToEdit = {} }) {
       </FormRow>
 
       <div className="flex justify-end gap-4 items-center mt-8">
-        <ButtonOutline onClick={onCloseModal}>Cancel</ButtonOutline>
+        <ButtonOutline disabled={isWorking} onClick={onCloseModal}>
+          Cancel
+        </ButtonOutline>
         <ButtonPrimary disabled={isWorking}>
           {isEditSession ? "Edit Note" : "Add Note"}
         </ButtonPrimary>

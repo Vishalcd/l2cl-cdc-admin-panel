@@ -10,15 +10,15 @@ export default function useLogin() {
   const { mutate: login, isPending: isLoging } = useMutation({
     mutationFn: ({ email, password }) => loginApi({ email, password }),
     onSuccess: (data) => {
-      // Set user to localstorage
-      const user = JSON.stringify(data);
-      localStorage.setItem("user", user);
-
-      // Ser to cache
-      queryClient.setQueriesData(["user"], data.user);
-
-      // navigate to application if credentials are correct
+      // set user data and navigate to application if credentials are correct
       if (data.user.role === "admin") {
+        // Set user to localstorage
+        const user = JSON.stringify(data);
+        localStorage.setItem("user", user);
+
+        // Set to cache
+        queryClient.setQueriesData(["user"], data.user);
+
         navigate("/dashboard", { replace: true });
       } else {
         toast.error("Incorrect email or password.");
@@ -27,7 +27,7 @@ export default function useLogin() {
     },
 
     onError: (err) => {
-      console.log(err.message);
+      console.error(err);
       toast.error("Incorrect email or password.");
     },
   });

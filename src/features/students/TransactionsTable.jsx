@@ -6,7 +6,6 @@ import { formatCurrency } from "../../utils/helper";
 import Spinner from "../../ui/Spinner";
 import useStudentTransactions from "./useTransactions";
 import TransactionsOperations from "./TransactionsOperations";
-import FeeStatus from "../../ui/FeeStatus";
 import Empty from "../../ui/Empty";
 
 function TransactionsTable({ student }) {
@@ -49,10 +48,8 @@ function TransactionsTable({ student }) {
             <IconTransactionRupee width={26} height={26} stroke={2} /> {results} Transicitons
           </span>
 
-          {student.feesComplete ? (
-            <FeeStatus status={student.feesComplete} />
-          ) : (
-            <span className=" leading-none bg-yellow-100 text-yellow-700 text-base font-medium px-3 py-1.5 rounded-full ">
+          {student.remainingFees <= 0 && (
+            <span className=" leading-none bg-yellow-100 dark:bg-yellow-900 dark:text-yellow-200 text-yellow-700 text-base font-medium px-3 py-1.5 rounded-full ">
               <span className=" font-mono">{formatCurrency(student.remainingFees)}</span> Remaining
             </span>
           )}

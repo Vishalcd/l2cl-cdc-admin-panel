@@ -31,7 +31,9 @@ function StudentRow({ student }) {
 
       <Courses courses={student.courses} />
 
-      <p className="font-mono leading-6 font-semibold">{formatMobileNumber(student.phoneNumber)}</p>
+      <p className="font-mono leading-6 dark:text-stone-300 font-semibold">
+        {formatMobileNumber(student.phoneNumber)}
+      </p>
 
       <StudentStatus status={student.active} />
 

@@ -1,7 +1,12 @@
 import { Cell, Legend, Pie, PieChart, ResponsiveContainer, Tooltip } from "recharts";
+import { useDarkMode } from "../../context/DarkModeContext";
 
 function PopularCoursesChart({ popularCourses }) {
-  const colors = ["#3b82f6", "#ef4444", "#eab308", "#22c55e"];
+  const { isDarkMode } = useDarkMode();
+
+  const colors = isDarkMode
+    ? ["#1d4ed8", "#b91c1c", "#a16207", "#15803d"]
+    : ["#3b82f6", "#ef4444", "#eab308", "#22c55e"];
 
   const data = popularCourses.map((course, i) => {
     return {

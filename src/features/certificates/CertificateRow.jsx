@@ -33,26 +33,16 @@ function CertificateRow({ certificate }) {
             <RowGender>{certificate.gender}</RowGender>
           </span>
           <Name>{certificate.name}</Name>
-          <span className="col-start-2 col-end-[-1] row-start-2 row-end-[-1] w-full font-normal leading-tight text-sm justify-self-center	 text-zinc-500">
-            <b className=" uppercase font-bold text-xs tracking-tighter mr-2 text-zinc-500">
+          <span className="col-start-2 col-end-[-1] row-start-2 row-end-[-1] w-full font-normal leading-tight text-sm justify-self-center dark:text-stone-400	 text-zinc-500">
+            <b className=" uppercase font-bold text-xs tracking-tighter mr-2 dark:text-stone-500 text-zinc-500">
               {certificate.gender === "male" ? "S" : "D"}/O
             </b>
             {certificate.fatherName}
           </span>
         </div>
       </Stack>
-      <Stack>
-        <p className="font-semibold text-sm text-green-600">
-          {certificate.experience} Year of Experiance
-        </p>
-        <div className=" text-xs  text-zinc-500 font-medium  flex items-center gap-2">
-          <time>{formatDate(certificate.startDate, "dd/MMM/yy")}</time>
-          &mdash;
-          <time>{formatDate(certificate.endDate, "dd/MMM/yy")}</time>
-        </div>
-      </Stack>
 
-      <p className=" font-medium text-sm leading-none flex items-center gap-2 min-w-20 rounded-full text-center  capitalize text-violet-600">
+      <p className=" font-medium text-sm leading-none flex items-center gap-2 min-w-20 rounded-full text-center  capitalize dark:text-violet-400 text-violet-600">
         {certificate.certificateType === "certificate" ? (
           <IconCertificate width={20} height={20} stroke={1.4} />
         ) : (
@@ -60,6 +50,17 @@ function CertificateRow({ certificate }) {
         )}
         {certificate.certificateType}
       </p>
+
+      <Stack>
+        <p className="font-semibold text-sm dark:text-green-500 text-green-600">
+          {certificate.experience} Year of Experiance
+        </p>
+        <div className=" text-xs dark:text-stone-400 font-mono text-zinc-500 font-semibold  flex items-center gap-2">
+          <time>{formatDate(certificate.startDate, "dd/MMM/yy")}</time>
+          &mdash;
+          <time>{formatDate(certificate.endDate, "dd/MMM/yy")}</time>
+        </div>
+      </Stack>
 
       <RowInfo>{certificate.course}</RowInfo>
       <CertificateStatus status={certificate.downloadPermission === "true"} />

@@ -11,8 +11,6 @@ function GalleryTable() {
 
   if (!gallerys || !gallerys.length) return <Empty resource="Gallery Images" />;
 
-  console.log(gallerys);
-
   const sliderGallery = gallerys?.filter((gallery) => gallery.galleryType === "sliderGallery");
   const gallery = gallerys?.filter((gallery) => gallery.galleryType === "gallery");
 

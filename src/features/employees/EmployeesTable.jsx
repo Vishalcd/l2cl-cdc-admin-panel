@@ -9,8 +9,6 @@ function EmployeesTable() {
 
   if (isLoading) return <Spinner />;
 
-  console.log(data);
-
   const { data: employess, totalResults } = data;
 
   return (

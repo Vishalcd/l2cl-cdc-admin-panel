@@ -57,7 +57,9 @@ function CreateImageForm({ onCloseModal }) {
       </FormRow>
 
       <div className="flex justify-end gap-4 items-center mt-8">
-        <ButtonOutline onClick={onCloseModal}>Cancel</ButtonOutline>
+        <ButtonOutline disabled={isWorking} onClick={onCloseModal}>
+          Cancel
+        </ButtonOutline>
         <ButtonPrimary disabled={isCreating}>Add Placement</ButtonPrimary>
       </div>
     </form>

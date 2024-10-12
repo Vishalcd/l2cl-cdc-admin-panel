@@ -23,7 +23,7 @@ function FacultyRow({ faculty }) {
     <Row
       role="row"
       moreClasses="grid dark:bg-stone-800 gap-2 bg-zinc-50 content-center grid-cols-facultyTable py-3 px-6 text-base  text-zinc-600 dark:text-stone-200 border-t dark:border-stone-700 border-zinc-200">
-      <div className="w-20 border border-zinc-400  aspect-square rounded-md overflow-hidden">
+      <div className="w-20 border border-zinc-400 dark:border-zinc-800  aspect-square rounded-md overflow-hidden">
         <img
           className="   object-cover"
           src={`http://localhost:8000/img/faculty/${faculty.photo}`}
@@ -34,11 +34,11 @@ function FacultyRow({ faculty }) {
         <Name>{faculty.name}</Name>
         <RowGender>{faculty.gender}</RowGender>
       </Stack>
-      <p className=" font-mono whitespace-nowrap overflow-hidden text-ellipsis w-[80%] text-zinc-500">
+      <p className=" font-mono whitespace-nowrap overflow-hidden text-ellipsis w-[80%] dark:text-stone-300 text-zinc-500">
         {faculty.description}
       </p>
       <RowInfo>{faculty.work}</RowInfo>
-      <span className=" flex items-center justify-center text-green-600 font-medium bg-green-200 rounded-full px-4 py-1 w-max  text-sm">
+      <span className=" flex items-center justify-center text-green-600 dark:text-green-200 font-medium dark:bg-green-900 bg-green-200 rounded-full px-4 py-1 w-max  text-sm">
         {faculty.experience} Year Experiance
       </span>
       <RowTime>{faculty.startDate}</RowTime>

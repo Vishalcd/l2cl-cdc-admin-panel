@@ -18,8 +18,8 @@ function CoursesPrice() {
   }
 
   return (
-    <div className="mt-6 p-10 rounded-lg bg-zinc-50 min-h-24">
-      <h2 className=" text-left text-2xl font-semibold mb-8  text-zinc-600">
+    <div className="mt-6 p-10 rounded-lg bg-zinc-50 dark:bg-stone-800 min-h-24">
+      <h2 className=" text-left text-2xl font-semibold mb-8 dark:text-stone-200  text-zinc-600">
         Update Courses Price
       </h2>
 
@@ -28,16 +28,16 @@ function CoursesPrice() {
           return (
             <div key={course._id} className="  grid grid-cols-[12rem,1fr] items-center gap-2">
               <label
-                className=" capitalize text-zinc-500 cursor-pointer font-medium"
+                className=" capitalize text-zinc-500 dark:text-stone-400  cursor-pointer font-medium"
                 htmlFor={course.courseName}>
                 Update {course.courseName} Price
               </label>
-              <div className="w-96 border-zinc-200 focus-within:border focus-within:border-violet-300 px-3 flex items-center gap-4 rounded  border">
+              <div className="w-96 border-zinc-200 dark:border-stone-700 focus-within:border focus-within:border-violet-300 px-3 flex items-center gap-4 rounded  border">
                 <Courses courses={[course]} />
                 <input
                   id={course.courseName}
                   name={course.courseName}
-                  className=" bg-transparent w-full py-2.5 px-2 focus:outline-0 "
+                  className=" bg-transparent dark:bg-stone-800 w-full py-2.5 px-2 focus:outline-0 "
                   type="text"
                   defaultValue={course.coursePrice}
                   placeholder="Enter Price"

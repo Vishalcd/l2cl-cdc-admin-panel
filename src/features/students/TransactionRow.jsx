@@ -2,7 +2,6 @@ import { IconBrandCashapp, IconCash } from "@tabler/icons-react";
 
 import { formatCurrency } from "../../utils/helper";
 import Courses from "../../ui/Courses";
-import FeeStatus from "../../ui/FeeStatus";
 import RowTime from "../../ui/RowTime";
 import RowID from "../../ui/RowID";
 
@@ -28,13 +27,13 @@ function TransactionRow({ transaction }) {
         {transaction.transactionMethod} Payment
       </p>
 
-      <span className=" flex items-center text-lg  leading-none  w-min rounded-full  gap-0 text-yellow-600  font-mono">
-        {transaction.remainingFees === 0 ? (
-          <FeeStatus status={true} />
-        ) : (
-          formatCurrency(transaction.remainingFees)
-        )}
-      </span>
+      {transaction.remainingFees === 0 ? (
+        <p>&mdash;</p>
+      ) : (
+        <span className=" flex items-center text-lg  leading-none  w-min rounded-full  gap-0 text-yellow-600  font-mono">
+          {formatCurrency(transaction.remainingFees)}
+        </span>
+      )}
 
       <RowTime>{transaction.createdAt}</RowTime>
     </div>

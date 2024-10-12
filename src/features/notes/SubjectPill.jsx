@@ -9,8 +9,6 @@ function SubjectPill({ subject }) {
     setCurrentSubject((selected) => !selected);
   }
 
-  console.log(selectedSubjects);
-
   return (
     <li
       onClick={handleClick}

@@ -8,10 +8,6 @@ import CreateNoteForm from "./CreateNoteForm";
 import useDeleteNote from "./useDeleteNote";
 
 function NoteCard({ note }) {
-  function handleDup() {
-    console.log(window);
-  }
-
   const { deleteNote, isDeleting } = useDeleteNote();
 
   function handleDeleteNote() {
@@ -36,19 +32,19 @@ function NoteCard({ note }) {
                   key={i}
                   className={`leading-none py-1 px-2 rounded-full inline-block text-xs uppercase ${
                     sub === "bca-1-sem"
-                      ? "bg-blue-500"
+                      ? "bg-blue-600 dark:bg-blue-900"
                       : sub === "bca-2-sem"
-                      ? "bg-green-700"
+                      ? "bg-green-600 dark:bg-green-900"
                       : sub === "bca-3-sem"
-                      ? "bg-red-500"
+                      ? "bg-red-600 dark:bg-red-900"
                       : sub === "bca-4-sem"
-                      ? "bg-yellow-700"
+                      ? "bg-yellow-600 dark:bg-yellow-900"
                       : sub === "bca-5-sem"
-                      ? "bg-purple-700"
+                      ? "bg-purple-700 dark:bg-purple-900"
                       : sub === "bca-6-sem"
-                      ? "bg-violet-500"
+                      ? "bg-violet-500 dark:bg-violet-900"
                       : ""
-                  } text-zinc-100`}>
+                  } text-zinc-100 dark:text-stone-300`}>
                   {sub}
                 </li>
               );
@@ -63,9 +59,7 @@ function NoteCard({ note }) {
 
               <Menus.List id={note}>
                 <Modal.Open opens="edit">
-                  <Menus.Button onClick={handleDup} icon={<IconEdit width={20} height={20} />}>
-                    Edit
-                  </Menus.Button>
+                  <Menus.Button icon={<IconEdit width={20} height={20} />}>Edit</Menus.Button>
                 </Modal.Open>
                 <Modal.Open opens="delete">
                   <Menus.Button icon={<IconTrash width={20} height={20} />}>Delete</Menus.Button>

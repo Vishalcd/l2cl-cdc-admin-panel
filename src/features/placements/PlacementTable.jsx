@@ -12,7 +12,6 @@ function PlacementTable() {
   if (isLoading) return <Spinner />;
 
   const { data: placements, totalResults } = data;
-  console.log(totalResults);
 
   if (!placements || !placements.length) return <Empty resource="Placements" />;
 

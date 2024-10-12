@@ -22,11 +22,11 @@ import Courses from "../../ui/Courses";
 import Spinner from "../../ui/Spinner";
 
 function UpdateStudentForm({ onCloseModal, student }) {
-  const [currentFee, setCurrentFee] = useState(student.currentFee);
   const [selectedCourses, setSelectedCourses] = useState([]);
+  const [currentFee, setCurrentFee] = useState(student.currentFee);
 
   const { isEditing, editStudent } = useEditStudent();
-  const { courses, isLoading } = useCourse();
+  const { isLoading, courses } = useCourse();
 
   const form = useForm({
     defaultValues: {
@@ -53,7 +53,6 @@ function UpdateStudentForm({ onCloseModal, student }) {
   );
 
   function onSubmit(data) {
-    console.log(data);
     const studentCurrentCourse = student.courses.map((course) => course._id);
     const newSelectedCourse = selectedCourses.map((course) => course._id);
 
@@ -123,6 +122,7 @@ function UpdateStudentForm({ onCloseModal, student }) {
                       options={remainingCourse}
                       displayValue="courseName"
                       value={value ? value : []}
+                      disable={isEditing}
                       onSelect={(e) => {
                         onChange(e);
                         setSelectedCourses(e);
@@ -203,8 +203,10 @@ function UpdateStudentForm({ onCloseModal, student }) {
       </div>
 
       <div className="flex justify-end gap-4 items-center mt-auto">
-        <ButtonOutline onClick={onCloseModal}>Cancel</ButtonOutline>
-        <ButtonPrimary>Update Student</ButtonPrimary>
+        <ButtonOutline disabled={isEditing} onClick={onCloseModal}>
+          Cancel
+        </ButtonOutline>
+        <ButtonPrimary disabled={isEditing}>Update Student</ButtonPrimary>
       </div>
     </form>
   );

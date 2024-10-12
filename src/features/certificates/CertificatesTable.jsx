@@ -19,8 +19,8 @@ function CertificatesTable() {
           moreClasses="grid content-center gap-2 grid-cols-certificateTable py-2.5 px-6 uppercase font-bold  text-zinc-700 dark:text-stone-300  ">
           <div>ID</div>
           <div>User Details</div>
-          <div>Total Experience</div>
           <div>Type</div>
+          <div>Total Experience</div>
           <div>Course</div>
           <div>Download</div>
           <div></div>

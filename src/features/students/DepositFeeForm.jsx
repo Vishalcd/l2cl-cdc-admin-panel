@@ -28,7 +28,6 @@ function DepositFeeForm({ onCloseModal, courses, remainingFees }) {
   const { isCreating, createTranscations } = useCreateTransaction();
 
   function onSubmit(data) {
-    console.log(data);
     data.courses = data.courses.map((course) => course._id);
     const transactionData = {
       transactionAmount: Number(data.transactionAmount),

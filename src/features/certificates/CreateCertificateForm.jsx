@@ -24,7 +24,6 @@ function CreateCertificateForm({ onCloseModal, certificateToEdit = {}, customerT
   const { _id: editId, ...editValues } = certificateToEdit;
   const isEditSession = Boolean(editId);
   const isNew = Boolean(customerToAdd._id);
-  console.log(isNew, customerToAdd);
 
   const form = useForm({ defaultValues: isEditSession ? editValues : {} });
   const { register, handleSubmit, formState } = form;
@@ -183,8 +182,10 @@ function CreateCertificateForm({ onCloseModal, certificateToEdit = {}, customerT
       </FormRow>
 
       <div className="flex justify-end gap-4 items-center mt-8">
-        <ButtonOutline onClick={() => onCloseModal}>Cancel</ButtonOutline>
-        <ButtonPrimary>Add Faculty</ButtonPrimary>
+        <ButtonOutline disabled={isWorking} onClick={() => onCloseModal}>
+          Cancel
+        </ButtonOutline>
+        <ButtonPrimary disabled={isWorking}>Add Faculty</ButtonPrimary>
       </div>
     </form>
   );

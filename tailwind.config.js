@@ -5,7 +5,7 @@ export default {
   theme: {
     extend: {
       gridTemplateColumns: {
-        userTable: "0.4fr 1.8fr 1.4fr 1.6fr 1fr 150px 32px",
+        userTable: "0.4fr 1.3fr 1.2fr 1.2fr 0.8fr 150px 32px",
         employeeTable: "120px 2.2fr 1.4fr 1.2fr 150px 32px",
         shiningStarsTable: "0.6fr 1.4fr 1.5fr 1.3fr 1.2fr 150px 32px",
         l2clTeamTable: "0.5fr 1.2fr 1.5fr 1fr 32px",

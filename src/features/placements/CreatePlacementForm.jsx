@@ -29,8 +29,6 @@ function CreatePlacementForm({ onCloseModal, placementToEdit = {} }) {
   const { isEditing, editPlacement } = useEditPlacement();
 
   function onSubmit(data) {
-    console.log(data.photo, data.photo.length === 0);
-
     const formData = new FormData();
     formData.append("name", data.name);
     formData.append("gender", data.gender);
@@ -49,6 +47,7 @@ function CreatePlacementForm({ onCloseModal, placementToEdit = {} }) {
   }
 
   const isWorking = isCreating || isEditing;
+
   return (
     <form onSubmit={handleSubmit(onSubmit)} className=" w-[36rem]">
       <FormRow
@@ -77,6 +76,7 @@ function CreatePlacementForm({ onCloseModal, placementToEdit = {} }) {
               type="radio"
               name="gender"
               value="male"
+              disabled={isWorking}
               {...register("gender", { required: "This field is required!" })}
             />
             <FormLable name="gender" htmlFor="male">
@@ -88,6 +88,7 @@ function CreatePlacementForm({ onCloseModal, placementToEdit = {} }) {
               id="female"
               type="radio"
               name="gender"
+              disabled={isWorking}
               value="female"
               {...register("gender", { required: "This field is required!" })}
             />
@@ -107,6 +108,8 @@ function CreatePlacementForm({ onCloseModal, placementToEdit = {} }) {
           <select
             id="developerRole"
             name="developerRole"
+            disabled={isWorking}
+            defaultValue={isEditSession && editValues.developerRole}
             className="border font-semibold text-zinc-600 text-sm bg-white border-zinc-200 rounded px-4 py-2 cursor-pointer">
             <option value="js-dev">JS Developer</option>
             <option value="php-dev">PHP Developer</option>
@@ -177,8 +180,8 @@ function CreatePlacementForm({ onCloseModal, placementToEdit = {} }) {
       </FormRow>
 
       <div className="flex justify-end gap-4 items-center mt-8">
-        <ButtonOutline>Cancel</ButtonOutline>
-        <ButtonPrimary>Add Placement</ButtonPrimary>
+        <ButtonOutline disabled={isWorking}>Cancel</ButtonOutline>
+        <ButtonPrimary disabled={isWorking}>Add Placement</ButtonPrimary>
       </div>
     </form>
   );

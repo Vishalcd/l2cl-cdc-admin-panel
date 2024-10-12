@@ -109,6 +109,7 @@ function CreateFacultyForm({ onCloseModal, facultyToEdit = {} }) {
         htmlFor="description">
         <textarea
           id="description"
+          disabled={isWorking}
           type="description"
           placeholder="Enter Description"
           className="px-3 py-2 h-22 rounded border border-zinc-200 w-80 file:cursor-pointer"
@@ -187,8 +188,10 @@ function CreateFacultyForm({ onCloseModal, facultyToEdit = {} }) {
       </FormRow>
 
       <div className="flex justify-end gap-4 items-center mt-8">
-        <ButtonOutline onClick={onCloseModal}>Cancel</ButtonOutline>
-        <ButtonPrimary>Add Faculty</ButtonPrimary>
+        <ButtonOutline disabled={isWorking} onClick={onCloseModal}>
+          Cancel
+        </ButtonOutline>
+        <ButtonPrimary disabled={isWorking}>Add Faculty</ButtonPrimary>
       </div>
     </form>
   );
