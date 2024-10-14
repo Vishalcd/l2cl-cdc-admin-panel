@@ -6,6 +6,7 @@ import Modal from "../../ui/Modal";
 import ConfirmDelete from "../../ui/ConfirmDelete";
 import CreateNoteForm from "./CreateNoteForm";
 import useDeleteNote from "./useDeleteNote";
+import { BASE_URL } from "../../utils/helper";
 
 function NoteCard({ note }) {
   const { deleteNote, isDeleting } = useDeleteNote();
@@ -18,7 +19,7 @@ function NoteCard({ note }) {
     <div className=" w-auto p-2 rounded-lg overflow-hidden border dark:bg-stone-800 dark:border-stone-700 bg-violet-50 border-zinc-200 shadow-[rgba(7,_65,_210,_0.05)_0px_9px_30px]">
       <div className="w-auto aspect-video">
         <img
-          src={`http://localhost:8000/img/pdfCover/${note.pdfCover}`}
+          src={`${BASE_URL}img/pdfCover/${note.pdfCover}`}
           alt={`${note.pdfTitle} Note Thumbnail`}
           className=" rounded-md"
         />

@@ -3,6 +3,7 @@ import { IconDownload, IconTrash } from "@tabler/icons-react";
 import Modal from "../../ui/Modal";
 import ConfirmDelete from "../../ui/ConfirmDelete";
 import useDeleteGallery from "./useDeleteGallery";
+import { BASE_URL } from "../../utils/helper";
 
 function GalleryCard({ gallery }) {
   const { isDeleting, deleteGallery } = useDeleteGallery();
@@ -44,7 +45,7 @@ function GalleryCard({ gallery }) {
       </div>
 
       <img
-        src={`http://localhost:8000/img/gallery/${gallery.photo}`}
+        src={`${BASE_URL}img/gallery/${gallery.photo}`}
         alt={`${gallery.photo} gallery image`}
         className="  hover:scale-110 hover:rotate-1 transition-transform  hover:grayscale "
       />
