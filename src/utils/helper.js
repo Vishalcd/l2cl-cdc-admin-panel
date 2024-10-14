@@ -1,7 +1,7 @@
 import { differenceInDays, formatDistance, parseISO } from "date-fns";
 
 // Constants
-export const BASE_URL = "http://localhost:8000/";
+export const BASE_URL = "https://l2cl-cdc-node-backend.onrender.com/";
 export const PAGE_SIZE = 10;
 
 export const formatCurrency = (value) =>
