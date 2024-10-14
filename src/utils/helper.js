@@ -1,7 +1,7 @@
 import { differenceInDays, formatDistance, parseISO } from "date-fns";
 
 // Constants
-export const API_URL = "http://localhost:8000/";
+export const BASE_URL = "http://localhost:8000/";
 export const PAGE_SIZE = 10;
 
 export const formatCurrency = (value) =>

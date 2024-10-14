@@ -17,7 +17,7 @@ function PopularCoursesChart({ popularCourses }) {
   });
 
   return (
-    <div className=" col-start-2 col-end-[-1] dark:bg-stone-800 bg-zinc-50 rounded-md border-zinc-100 p-10 ">
+    <div className=" col-start-2 col-end-[-1] dark:border-stone-700 dark:bg-stone-800 border bg-zinc-50 rounded-md border-zinc-200 p-10 ">
       <h2 className=" font-semibold dark:text-stone-200 text-zinc-700 text-xl mb-5">
         Popular Courses
       </h2>

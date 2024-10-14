@@ -1,6 +1,5 @@
 import Empty from "../../ui/Empty";
 import Spinner from "../../ui/Spinner";
-import AddGalleryImage from "./AddGalleryImage";
 import GalleryGrid from "./GalleryGrid";
 import useGallerys from "./useGallery";
 
@@ -18,10 +17,6 @@ function GalleryTable() {
     <>
       <GalleryGrid heading="Memories of L2CL" gallery={gallery} />
       <GalleryGrid heading="Slider Gallery" gallery={sliderGallery} />
-
-      <div className="mt-4">
-        <AddGalleryImage />
-      </div>
     </>
   );
 }

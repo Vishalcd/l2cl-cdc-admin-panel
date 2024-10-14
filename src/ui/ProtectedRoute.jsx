@@ -5,7 +5,7 @@ function ProtectedRoute({ children }) {
   const navigate = useNavigate();
 
   // Get Current User
-  const { user } = JSON.parse(localStorage.getItem("user"));
+  const { user } = JSON.parse(localStorage.getItem("user")) || false;
 
   // Check if it is authenticated if not redirect to login
   useEffect(

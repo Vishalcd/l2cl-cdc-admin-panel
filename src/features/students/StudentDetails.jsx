@@ -26,7 +26,7 @@ import StudentStatus from "../../ui/StudentStatus";
 import JoinUs from "../../ui/JoinUs";
 import useStudentDetails from "./useStudent";
 import Spinner from "../../ui/Spinner";
-import { formatCurrency, formatMobileNumber } from "../../utils/helper";
+import { BASE_URL, formatCurrency, formatMobileNumber } from "../../utils/helper";
 import Courses from "../../ui/Courses";
 import TransactionsTable from "./TransactionsTable";
 import FeeStatus from "../../ui/FeeStatus";
@@ -58,7 +58,11 @@ function StudentDetails() {
         <div className=" relative flex items-center justify-center flex-col border-r dark:border-[rgba(255,255,255,0.05)] border-[rgba(1,1,1,0.05)]">
           <div className="w-20 h-20 overflow-hidden mb-4  ">
             <img
-              src={`/img/${student.photo}`}
+              src={`${
+                student.photo === "default.jpg"
+                  ? `/img/default-admin.jpg`
+                  : `${BASE_URL}img/users/${student.photo}`
+              }`}
               className="border-2 p-[2px] dark:border-violet-950 border-violet-200 w-min  rounded-full"
               alt="user imge"
             />

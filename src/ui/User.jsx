@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Stack from "./Stack";
 import Logout from "../features/authentication/Logout";
+import { BASE_URL } from "../utils/helper";
 
 function User() {
   const [showMenu, setShowMenu] = useState(false);
@@ -15,7 +16,9 @@ function User() {
       className="flex items-center gap-3 cursor-pointer self-stretch px-2 dark:hover:bg-stone-700 hover:bg-zinc-100 relative">
       <div className="w-10 aspect-square rounded-full  bg-violet-100">
         <img
-          src={`${photo === "deafult.jpg" ? `/img/deafult.jpg` : `/img/${photo}`}`}
+          src={`${
+            photo === "default.jpg" ? `/img/default-admin.jpg` : `${BASE_URL}img/users/${photo}`
+          }`}
           alt={`${name} profile picture`}
           className=" rounded-full "
         />

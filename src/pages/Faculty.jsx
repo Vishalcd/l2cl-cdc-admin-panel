@@ -1,3 +1,4 @@
+import AddFaculty from "../features/faculty/AddFaculty";
 import FacultyOperations from "../features/faculty/FacultyOperations";
 import FacultyTable from "../features/faculty/FacultyTable";
 import Heading from "../ui/Heading";
@@ -11,6 +12,7 @@ function Faculty() {
         <FacultyOperations />
       </Row>
       <FacultyTable />
+      <AddFaculty />
     </>
   );
 }

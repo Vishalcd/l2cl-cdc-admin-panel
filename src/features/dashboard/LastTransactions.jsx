@@ -4,7 +4,7 @@ import { formatCurrency } from "../../utils/helper";
 
 function LastTransactions({ lastTransactions }) {
   return (
-    <div className=" col-start-1 col-end-[2] dark:bg-stone-800 bg-zinc-50 rounded-md border-zinc-100 p-10  ">
+    <div className=" col-start-1 col-end-[2] dark:border-stone-700 dark:bg-stone-800 border bg-zinc-50 rounded-md border-zinc-200 p-10  ">
       <h2 className=" dark:text-stone-200 font-semibold text-zinc-700 text-xl mb-5">
         Last Transactions
       </h2>

@@ -3,7 +3,6 @@ import { useSearchParams } from "react-router-dom";
 import Empty from "../../ui/Empty";
 import Row from "../../ui/Row";
 import Spinner from "../../ui/Spinner";
-import AddFaculty from "./AddFaculty";
 import FacultyRow from "./FacultyRow";
 import useFaculty from "./useFaculty";
 
@@ -44,7 +43,6 @@ function FacultyTable() {
           return <FacultyRow faculty={faculty} key={faculty._id} />;
         })}
       </div>
-      <AddFaculty />
     </>
   );
 }

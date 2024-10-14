@@ -1,13 +1,14 @@
 import Stack from "./Stack";
 import Name from "./Name";
 import RowGender from "./RowGender";
+import { BASE_URL } from "../utils/helper";
 
 function RowUser({ photo, name, email, gender }) {
   return (
     <>
       <div className="w-12 h-12 rounded-full  overflow-hidden">
         <img
-          src={`/img/${photo}`}
+          src={`${photo === "default.jpg" ? `/img/default.jpg` : `${BASE_URL}img/users/${photo}`}`}
           alt={`${name} Profile picture`}
           className=" bg-violet-100"
           width={100}

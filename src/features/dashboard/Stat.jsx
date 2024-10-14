@@ -18,7 +18,7 @@ function Stat({ icon, heading, children, color = "green" }) {
       };
 
   return (
-    <div className="p-4 rounded-md border dark:bg-stone-800 dark:border-stone-700 border-zinc-100 bg-zinc-50 grid grid-cols-[4rem,1fr] gap-x-2.5 gap-y-1 grid-rows-[2rem,2rem] justify-center items-center content-center place-content-center">
+    <div className="p-4 rounded-md border dark:bg-stone-800 dark:border-stone-700 border-zinc-200 bg-zinc-50 grid grid-cols-[4rem,1fr] gap-x-2.5 gap-y-1 grid-rows-[2rem,2rem] justify-center items-center content-center place-content-center">
       <span
         className={` flex items-center justify-center ${colors[color]}  rounded-full w-14 aspect-square row-span-1 col-start-1 col-end-2 row-start-1 row-end-3`}>
         {icon}

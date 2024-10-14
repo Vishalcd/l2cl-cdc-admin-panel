@@ -1,13 +1,8 @@
 import axios from "axios";
-import { API_URL } from "../utils/helper";
-
-// get token from localstorage
-const { token } = JSON.parse(localStorage.getItem("user"));
-const headers = { Authorization: `Bearer ${token}` };
+import { BASE_URL } from "../utils/helper";
 
 export async function getStats(date) {
-  const { data } = await axios.get(`${API_URL}api/v1/stats?date=${date}`, {
-    headers,
+  const { data } = await axios.get(`${BASE_URL}api/v1/stats?date=${date}`, {
     withCredentials: true,
   });
 

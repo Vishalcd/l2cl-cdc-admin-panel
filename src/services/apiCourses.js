@@ -1,13 +1,8 @@
 import axios from "axios";
-import { API_URL } from "../utils/helper";
-
-// get token from localstorage
-const { token } = JSON.parse(localStorage.getItem("user"));
-const headers = { Authorization: `Bearer ${token}` };
+import { BASE_URL } from "../utils/helper";
 
 export async function getCourses() {
-  const { data } = await axios.get(`${API_URL}api/v1/courses`, {
-    headers,
+  const { data } = await axios.get(`${BASE_URL}api/v1/courses`, {
     withCredentials: true,
   });
 
@@ -19,8 +14,7 @@ export async function getCourses() {
 }
 
 export async function createCourse(course) {
-  const { data } = await axios.post(`${API_URL}api/v1/courses`, course, {
-    headers,
+  const { data } = await axios.post(`${BASE_URL}api/v1/courses`, course, {
     withCredentials: true,
   });
 
@@ -32,8 +26,7 @@ export async function createCourse(course) {
 }
 
 export async function updateCourse(id, course) {
-  const { data } = await axios.patch(`${API_URL}api/v1/courses/${id}`, course, {
-    headers,
+  const { data } = await axios.patch(`${BASE_URL}api/v1/courses/${id}`, course, {
     withCredentials: true,
   });
 
@@ -45,8 +38,7 @@ export async function updateCourse(id, course) {
 }
 
 export async function deleteCourse(id) {
-  const { data } = await axios.delete(`${API_URL}api/v1/courses/${id}`, {
-    headers,
+  const { data } = await axios.delete(`${BASE_URL}api/v1/courses/${id}`, {
     withCredentials: true,
   });
 

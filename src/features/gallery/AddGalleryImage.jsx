@@ -6,16 +6,18 @@ import CreateImageForm from "./CreateImageForm";
 
 function AddGalleryImage() {
   return (
-    <Modal>
-      <Modal.Open opens="gallery-form">
-        <ButtonPrimary>
-          <IconPlus stroke={2} /> Add New Image
-        </ButtonPrimary>
-      </Modal.Open>
-      <Modal.Window names="gallery-form">
-        <CreateImageForm />
-      </Modal.Window>
-    </Modal>
+    <div className="mt-4">
+      <Modal>
+        <Modal.Open opens="gallery-form">
+          <ButtonPrimary>
+            <IconPlus stroke={2} /> Add New Image
+          </ButtonPrimary>
+        </Modal.Open>
+        <Modal.Window names="gallery-form">
+          <CreateImageForm />
+        </Modal.Window>
+      </Modal>
+    </div>
   );
 }
 

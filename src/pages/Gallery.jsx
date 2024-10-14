@@ -1,3 +1,4 @@
+import AddGalleryImage from "../features/gallery/AddGalleryImage";
 import GalleryTable from "../features/gallery/GalleryTable";
 import Heading from "../ui/Heading";
 import Row from "../ui/Row";
@@ -9,6 +10,7 @@ function Gallery() {
         <Heading>Gallery</Heading>
       </Row>
       <GalleryTable />
+      <AddGalleryImage />
     </>
   );
 }

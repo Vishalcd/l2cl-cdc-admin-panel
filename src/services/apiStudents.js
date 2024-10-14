@@ -1,17 +1,12 @@
 import axios from "axios";
-import { API_URL, PAGE_SIZE } from "../utils/helper";
-
-// get token from localstorage
-const { token } = JSON.parse(localStorage.getItem("user"));
-const headers = { Authorization: `Bearer ${token}` };
+import { BASE_URL, PAGE_SIZE } from "../utils/helper";
 
 export async function getStudents({ filter, sort, page }) {
-  let query = `${API_URL}api/v1/users?fields=name,email,photo,enrollId,phoneNumber,_id,active,cources,createdAt&role=student&sort=${sort}${
+  let query = `${BASE_URL}api/v1/users?fields=name,email,photo,enrollId,phoneNumber,_id,active,cources,createdAt&role=student&sort=${sort}${
     filter ? `&${filter}` : ""
   }${page ? `&page=${page}&limit=${PAGE_SIZE}` : ""}`;
 
   const { data } = await axios.get(query, {
-    headers,
     withCredentials: true,
   });
 
@@ -23,8 +18,7 @@ export async function getStudents({ filter, sort, page }) {
 }
 
 export async function getStudent(id) {
-  const { data } = await axios.get(`${API_URL}api/v1/users/${id}`, {
-    headers,
+  const { data } = await axios.get(`${BASE_URL}api/v1/users/${id}`, {
     withCredentials: true,
   });
 
@@ -36,8 +30,7 @@ export async function getStudent(id) {
 }
 
 export async function getStudentTranscations(id) {
-  const { data } = await axios.get(`${API_URL}api/v1/users/${id}/transactions`, {
-    headers,
+  const { data } = await axios.get(`${BASE_URL}api/v1/users/${id}/transactions`, {
     withCredentials: true,
   });
 
@@ -49,8 +42,7 @@ export async function getStudentTranscations(id) {
 }
 
 export async function createTranscations(id, transactionData) {
-  const { data } = await axios.post(`${API_URL}api/v1/users/${id}/transactions`, transactionData, {
-    headers,
+  const { data } = await axios.post(`${BASE_URL}api/v1/users/${id}/transactions`, transactionData, {
     withCredentials: true,
   });
 
@@ -62,8 +54,7 @@ export async function createTranscations(id, transactionData) {
 }
 
 export async function updateStudent(id, studentData) {
-  const { data } = await axios.patch(`${API_URL}api/v1/users/${id}`, studentData, {
-    headers,
+  const { data } = await axios.patch(`${BASE_URL}api/v1/users/${id}`, studentData, {
     withCredentials: true,
   });
 
@@ -75,8 +66,7 @@ export async function updateStudent(id, studentData) {
 }
 
 export async function deactivateStudent(id) {
-  const { data } = await axios.delete(`${API_URL}api/v1/users/${id}`, {
-    headers,
+  const { data } = await axios.delete(`${BASE_URL}api/v1/users/${id}`, {
     withCredentials: true,
   });
 

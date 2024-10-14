@@ -66,7 +66,7 @@ function FeeChart({ transactions, numDays }) {
   });
 
   return (
-    <div className=" col-start-1 col-end-[-1] dark:bg-stone-800 bg-zinc-50 rounded-md border-zinc-100 p-10 ">
+    <div className=" col-start-1 col-end-[-1] dark:bg-stone-800 dark:border-stone-700 bg-zinc-50 rounded-md border border-zinc-200 p-10 ">
       <h2 className=" dark:text-stone-200 font-semibold text-zinc-700 text-xl mb-5">
         Fee Deposit from {formatDate(allDates.at(0), "MMM dd yyyy")} —{" "}
         {formatDate(allDates.at(-1), "MMM dd yyyy")}

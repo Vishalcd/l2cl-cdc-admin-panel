@@ -1,13 +1,8 @@
 import axios from "axios";
-import { API_URL } from "../utils/helper";
-
-// get token from localstorage
-const { token } = JSON.parse(localStorage.getItem("user"));
-const headers = { Authorization: `Bearer ${token}` };
+import { BASE_URL } from "../utils/helper";
 
 export async function getFaculty() {
-  const { data } = await axios.get(`${API_URL}api/v1/faculty`, {
-    headers,
+  const { data } = await axios.get(`${BASE_URL}api/v1/faculty`, {
     withCredentials: true,
   });
 
@@ -19,8 +14,7 @@ export async function getFaculty() {
 }
 
 export async function createFaculty(faculty) {
-  const { data } = await axios.post(`${API_URL}api/v1/faculty`, faculty, {
-    headers,
+  const { data } = await axios.post(`${BASE_URL}api/v1/faculty`, faculty, {
     withCredentials: true,
   });
 
@@ -32,8 +26,7 @@ export async function createFaculty(faculty) {
 }
 
 export async function updateFaculty(id, facultyData) {
-  const { data } = await axios.patch(`${API_URL}api/v1/faculty/${id}`, facultyData, {
-    headers,
+  const { data } = await axios.patch(`${BASE_URL}api/v1/faculty/${id}`, facultyData, {
     withCredentials: true,
   });
 
@@ -45,8 +38,7 @@ export async function updateFaculty(id, facultyData) {
 }
 
 export async function deleteFaculty(id) {
-  const { data } = await axios.delete(`${API_URL}api/v1/faculty/${id}`, {
-    headers,
+  const { data } = await axios.delete(`${BASE_URL}api/v1/faculty/${id}`, {
     withCredentials: true,
   });
 

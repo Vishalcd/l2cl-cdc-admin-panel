@@ -1,8 +1,8 @@
 import axios from "axios";
-import { API_URL } from "../utils/helper";
+import { BASE_URL } from "../utils/helper";
 
 export async function login(loginDetails) {
-  const { data } = await axios.post(`${API_URL}api/v1/users/login`, loginDetails, {
+  const { data } = await axios.post(`${BASE_URL}api/v1/users/login`, loginDetails, {
     withCredentials: true,
   });
 
@@ -14,7 +14,7 @@ export async function login(loginDetails) {
 }
 
 export async function logout() {
-  const { data } = await axios.post(`${API_URL}api/v1/users/logout`, {
+  const { data } = await axios.post(`${BASE_URL}api/v1/users/logout`, {
     withCredentials: true,
   });
 

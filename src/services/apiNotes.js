@@ -1,12 +1,8 @@
 import axios from "axios";
-import { API_URL } from "../utils/helper";
-
-// get token from localstorage
-const { token } = JSON.parse(localStorage.getItem("user"));
-const headers = { Authorization: `Bearer ${token}` };
+import { BASE_URL } from "../utils/helper";
 
 export async function getNotes() {
-  const { data } = await axios.get(`${API_URL}api/v1/notes`);
+  const { data } = await axios.get(`${BASE_URL}api/v1/notes`);
 
   if (data.status !== "success") {
     throw new Error(data.message);
@@ -16,8 +12,7 @@ export async function getNotes() {
 }
 
 export async function createNote(note) {
-  const { data } = await axios.post(`${API_URL}api/v1/notes`, note, {
-    headers,
+  const { data } = await axios.post(`${BASE_URL}api/v1/notes`, note, {
     withCredentials: true,
   });
 
@@ -29,8 +24,7 @@ export async function createNote(note) {
 }
 
 export async function updateNote(id, noteData) {
-  const { data } = await axios.patch(`${API_URL}api/v1/notes/${id}`, noteData, {
-    headers,
+  const { data } = await axios.patch(`${BASE_URL}api/v1/notes/${id}`, noteData, {
     withCredentials: true,
   });
 
@@ -42,8 +36,7 @@ export async function updateNote(id, noteData) {
 }
 
 export async function deleteNote(id) {
-  const { data } = await axios.delete(`${API_URL}api/v1/notes/${id}`, {
-    headers,
+  const { data } = await axios.delete(`${BASE_URL}api/v1/notes/${id}`, {
     withCredentials: true,
   });
 

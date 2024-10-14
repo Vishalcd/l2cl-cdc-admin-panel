@@ -1,17 +1,12 @@
 import axios from "axios";
-import { API_URL, PAGE_SIZE } from "../utils/helper";
-
-// get token from localstorage
-const { token } = JSON.parse(localStorage.getItem("user"));
-const headers = { Authorization: `Bearer ${token}` };
+import { BASE_URL, PAGE_SIZE } from "../utils/helper";
 
 export async function getEmployees({ filter, sort, page }) {
-  let query = `${API_URL}api/v1/users?fields=name,email,photo,phoneNumber,enrollId,fatherName,fatherPhoneNumber,_id,active,cources,createdAt&role=employee&sort=${sort}${
+  let query = `${BASE_URL}api/v1/users?fields=name,email,photo,phoneNumber,enrollId,fatherName,fatherPhoneNumber,_id,active,cources,createdAt&role=employee&sort=${sort}${
     filter ? `&${filter}` : ""
   }${page ? `&page=${page}&limit=${PAGE_SIZE}` : ""}`;
 
   const { data } = await axios.get(query, {
-    headers,
     withCredentials: true,
   });
 
@@ -23,8 +18,7 @@ export async function getEmployees({ filter, sort, page }) {
 }
 
 export async function getEmployee(id) {
-  const { data } = await axios.get(`${API_URL}api/v1/users/${id}`, {
-    headers,
+  const { data } = await axios.get(`${BASE_URL}api/v1/users/${id}`, {
     withCredentials: true,
   });
 
@@ -36,8 +30,7 @@ export async function getEmployee(id) {
 }
 
 export async function updateEmployee(id, employeeData) {
-  const { data } = await axios.patch(`${API_URL}api/v1/users/${id}`, employeeData, {
-    headers,
+  const { data } = await axios.patch(`${BASE_URL}api/v1/users/${id}`, employeeData, {
     withCredentials: true,
   });
 
@@ -49,8 +42,7 @@ export async function updateEmployee(id, employeeData) {
 }
 
 export async function deactivateEmployee(id) {
-  const { data } = await axios.delete(`${API_URL}api/v1/users/${id}`, {
-    headers,
+  const { data } = await axios.delete(`${BASE_URL}api/v1/users/${id}`, {
     withCredentials: true,
   });
 

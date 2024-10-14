@@ -18,7 +18,7 @@ function NoteCard({ note }) {
     <div className=" w-auto p-2 rounded-lg overflow-hidden border dark:bg-stone-800 dark:border-stone-700 bg-violet-50 border-zinc-200 shadow-[rgba(7,_65,_210,_0.05)_0px_9px_30px]">
       <div className="w-auto aspect-video">
         <img
-          src={`http://localhost:8000/img/pdf/${note.pdfCover}`}
+          src={`http://localhost:8000/img/pdfCover/${note.pdfCover}`}
           alt={`${note.pdfTitle} Note Thumbnail`}
           className=" rounded-md"
         />
