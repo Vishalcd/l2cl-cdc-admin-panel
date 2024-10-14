@@ -18,6 +18,7 @@ import Name from "../../ui/Name";
 import RowTime from "../../ui/RowTime";
 import RowGender from "../../ui/RowGender";
 import RowInfo from "../../ui/RowInfo";
+import { BASE_URL } from "../../utils/helper";
 
 function PlacementRow({ placement }) {
   const { deletePlacement, isDeleting } = useDeletePlacement();
@@ -29,7 +30,7 @@ function PlacementRow({ placement }) {
       <div className="overflow-hidden bg-violet-100 border border-zinc-200 w-12 h-18">
         <img
           className=" dark:brightness-90"
-          src={`http://localhost:8000/img/placements/${placement.photo}`}
+          src={`${BASE_URL}img/placements/${placement.photo}`}
           alt={`${placement.name} Placement picture`}
         />
       </div>

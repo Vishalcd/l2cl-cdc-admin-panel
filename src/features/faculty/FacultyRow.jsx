@@ -11,6 +11,7 @@ import useDeleteFaculty from "./useDeleteFaculty";
 import Name from "../../ui/Name";
 import RowGender from "../../ui/RowGender";
 import RowInfo from "../../ui/RowInfo";
+import { BASE_URL } from "../../utils/helper";
 
 function FacultyRow({ faculty }) {
   const { isDeleting, deleteFaculty } = useDeleteFaculty();
@@ -26,7 +27,7 @@ function FacultyRow({ faculty }) {
       <div className="w-20 border border-zinc-400 dark:border-zinc-800  aspect-square rounded-md overflow-hidden">
         <img
           className="   object-cover"
-          src={`http://localhost:8000/img/faculty/${faculty.photo}`}
+          src={`${BASE_URL}img/faculty/${faculty.photo}`}
           alt={`${faculty.name} faculty photo`}
         />
       </div>
